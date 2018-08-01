@@ -1,0 +1,15 @@
+%[NOTE] [ASYMMETRIC DELAY IN VIDEO-MEDIATED GROUP DISCUSSIONS] contain noticeable delay and annoyance delay. The randomly assigned participant or the moderator respectively had 500ms added delay. In other words the difference between no delay and one of the participants having 500ms delay is not perceptible but the difference to 1000ms is perceptible.
+
+%[NOTE] [DelayInDIME] On the one hand, the combination of both audio and video channels makes delay of 80ms ~ 120ms noticeable. This paper suggests that a delay of 120ms may be disruptive or distracting.
+
+%[NOTE] [The Influence of Interactivity Patterns on the Quality of Experience in Multi-party Video-mediated Conversations under Symmetric Delay Conditions] contain Noticeability and Annoyance (And also quality). Schmitt et al. conducted an experiment with a video-mediated quiz task and found that even 500ms is not noticeable. User difference matters.
+
+%[NOTE] [Exploiting Just-Noticeable Difference of Delays for Improving Quality of Experience in Video Conferencing] Based on a psychophysical concept called just-noticeable difference (JND), we find the extent to which MED can be in- creased, without humans perceiving the difference from the original conversation. Starting from the operating point of an existing system, we increase its MED to within JND in order to have more room for smoothing network delay spikes as well as re- covering lost packets, without incurring noticeable degradation in interactivity.
+
+%[NOTE] [Evaluation on Perceptual Audiovisual Delay using Average Talkspurts and Delay] Delay perception is closely linked to the characteristics of audiovisual conversations. Different conversation tasks also vary the delay perception.
+
+%[NOTE] [Delay Effect on Conversational Quality in Telecommunication Networks: Do We Mind] The difference between scripted and unscripted scenarios is crucial 
+
+%[NOTE] [Video increases the perception of naturalness during remote interactions with latency] Tam et al. suggested that delay has a weaker impact on perception of naturalness when both audio and video channels were available, up to 500ms, then when only the audio channel.
+
+%[NOTE] [Augmented sport: exploring collective user experience] As Pallot el at. suggested, user experience related works in DIMEs often have some overlapping aspect and granularity inconsistencies. It may because of the variety of supported tasks in 2D telepresence.

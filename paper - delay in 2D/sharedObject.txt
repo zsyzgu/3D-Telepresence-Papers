@@ -1,0 +1,9 @@
+[NOTE] The importance of feeling like in the same virtual space.
+
+[NOTE] The advantages of offering shared object as visual cues.
+
+[NOTE] Holoportation has mention one of the most important advantage of HMDs is that participants can feel like in the same space. previuos systems use stereoscopic projection which ultimately limits the ability for remote and local users to actually inhabit the exact same space. Instead interaction occurs through a 'window' from one space into the other. To resolve this issue, we utilize full volumetric 3D capture of a space, which is overlaid with the remote environ- ment, and leverage off-the-shelf augmented and virtual reality displays for rendering, which allow spaces to be shared and co-habited.
+
+[NOTE] 3DTI case studies have mention that when there is no HMDs for immersion display, the relative positions and directions of cameras and displays in a TI environment impacts children' s sense of orientation. they need to orient themselves by locating or imaging where the remote peer would be in the physical surroundings.
+
+[NOTE] Mobility in collaboration. Another important factor in co-located collaboration is the use of physical props.

@@ -1,0 +1,67 @@
+概括：这篇论文希望给3D通信中，不同Task对延迟的要求做一个理论性质的分类，并通过用户实验来举例说明。
+
+
+
+有一个概念我可能要更正一下，实际上我在上次组会的时候提出的noticeable delay和annoyed delay是曲解了相关论文了。在大部分论文里面，它们都会
+
+
+
+这个理论的依据有两个方面：一个方面是2D通信中延迟相关工作的总结；另一方面是总结一下3D通信与2D通信的不同之处。
+
+
+
+那根据这两方面的调研，我们就提出了一个简单的分类方法：
+
+
+
+A：强制性同步：<50ms（应接近对local延迟的要求）
+
+	例子：猜拳、合奏；倒计时
+
+B：conversation：<150ms
+
+	例子：tell a lie游戏；3D视频聊天
+
+C：即时的视觉线索：<500ms
+
+	例子：搭积木、你画我猜；
+
+D：其它：>500ms
+
+	例子：下象棋；
+
+
+
+在实验方面，有两个方案：
+
+一个方案着重于体现3D中任务的多样性，做6个不同的tasks的实验，猜拳、合奏、聊天、搭积木、你画我猜和下象棋。
+
+第二个实验方案则更着重于说服力，就是我们针对一个task做对比实验，比如说下象棋，分三种模式：可以说话的模式、不可以说话但是可以看见对方身体的模式、还有不能说话而且只能看见棋盘的模式。但是这个实验方案的坏处就是它的外在效度特别差，因为只有一个任务，很难说明我们整个框架是可靠的。
+
+
+
+刚刚说的是实验一。实验二可以做也可以不做，是通过对比实验来证明在已知延迟感知能力的情况下，调整技术支持方案，的确能提高用户的满意程度。
+
+
+
+《Influence of Temporal Delay and Display Update Rate in an Augmented Reality Application Scenario》
+
+We can show that temporal delay and update rate both affect user performance and experience but that users are much more sensitive to longer temporal delay than to lower update rates.
+
+《Are we in sync?: synchronization requirements for watching on-line video together》
+
+a satisfying feeling of togetherness (defined in [^] and closely related to QoS or QoE)
+
+《Inter-destination multimedia synchronization: schemes, use cases and standardization》
+
+  (3DTI) Overall, the application would allow remote participants to interact within a shared 3D space so everyone would feel a strong mutual sense of presence.
+
+This rule states that the maximum end-to-end one-way delay when talking remotely should not exceed 150 ms.
+
+However, these results are largely dependent on several factors, such as the genre of the video content, the number of users, their activity and profiles (age, sex, relationships among them—family, friends, partners, etc....), the communication channel, etc. Consequently, no statistically absolute user tolerance limits may be derived from these preliminary experiments, and more accurate asynchrony levels for IDMS should be achieved to avoid the user’s frustration, and thus guarantee an enjoyable shared experience in such synchronous media sharing applications.
+
+ Network Jitter It denotes the varying delay that stream packets experience on their way from the sender to the receiver devices.
+
+100~500ms Typical use cases here are about semi real-time additional content, or about users who are consuming content at different physical locations and do have active interaction, but not so strict as in the high-accuracy scenario.
+
+ 
