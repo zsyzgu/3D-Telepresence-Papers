@@ -1,0 +1,203 @@
+\section{A Framework of Delay Perception in 3DTI}
+
+% The structure of our framework & its goodness
+We present a conceptual framework of delay perception in 3DTI. In this framework, 3DTI applications are divided into four levels according to their delay requirement. Suggestions are given to network engineering for each level. Furthermore, we have designed an experiment to illustrate the framework. Readers can reconstruct the experiment to precisely measure the delay requirement of a specific application.
+
+In the area of audiovisual DIME, delay perception is a well-understood research question. Our framework partly relies on theories and study results from this area. However, there is a large difference of delay perception between 3DTI and audiovisual DIME. Thus, We take the features of 3DTI into account in order to form our framework.
+
+Noticeability and disruptiveness of delay are two important factors that measured by most studies \cite{wu2009quality, schmitt2014influence, geerts2011we, schmitt2014asymmetric}. Some studies also focus on users' perception of overall network quality. These metrics are users' subjective rating in a specific task, and with a specific delay. In our study, we assess subjective feedback via questionnaires similar to \cite{schmitt2014influence}. The questionnaire is on a 5-point Likert scale (Table \ref{tab:table_questionnaire}).
+
+\begin{table} [!htbp]
+\begin{tabular}{|p{0.25\columnwidth}|p{0.35\columnwidth}|p{0.3\columnwidth}|}
+\hline 
+Label & Question & Scale \\
+\hline
+quality & How do you feel during the experiment? & Excellent <--> Bad \\
+\hline
+noticeability & Can you perceive the delay in the connection? & Not at all <--> Very much \\
+\hline
+disruptiveness & To what extent where you annoyed by the delay? & No annoyance <--> Severe annoyance \\
+\hline
+\end{tabular}
+\caption{Questions and scale.}
+\label{tab:table_questionnaire}
+\end{table}
+
+A 3DTI developer may expect a certain recommended delay for his application. However, previous works \cite{montagud2012inter} [?, ?, ?] pointed out that delay perception is largely dependent on user differences and context. Thus, we should investigate the noticeable and tolerable boundary of delay, which is statistically suitable for most users. We first refer to a psychology concept called \emph{Just Notice Difference (JND)} \cite{xu2013exploiting, sat2009statistical}:
+
+\begin{itemize}
+    \item \emph{JND}: With other variables fixed, the value for which 50\% of the subjects perceive a difference in their quality.
+\end{itemize}
+
+Most related studies recommend using \emph{noticeable delay} and \emph{tolerable delay} as certain values in discussion. We define them as follows:
+
+\begin{itemize}
+    \item \emph{Noticeable Delay}: the threshold delay that most users can just perceive. In our experiment, we define it as the 50\% JND of zero delays, i.e., more than 50\% of participants score 1 point for noticeability.
+    
+    \item \emph{Tolerable Delay}: the threshold delay that most users can just tolerant. In our experiment, we define it as the just intolerable delay minus its 50\% JND, i.e., less than 50\% of participants score 4 or 5 points for disruptiveness.
+\end{itemize}
+
+We illustrate the relationship between noticeable delay and tolerable delay in figure xxx.
+
+The noticeable delay is very insightful for network engineering. On the one hand, developers should try their best to improve the network service, to reach the noticeable delay. On the other hand, when a service is already within noticeable delay, we can appropriately increase the delay to have more room for smoothing or recovering packet loss \cite{xu2013exploiting}.
+
+[NOTE] Tolerable delay indicates a boundary that is nearly intolerant. An application can not simply target at it, because it is already a bad service. Instead, the tolerable delay can be used to assess the quality of experience (QoE). [?] suggests a linear correlation between end-to-end delay and user experience. We can use noticeable delay and tolerable delay to determine the correlation.
+
+[NOTE from zsyzgu] Here I changed my mind about the tolerant delay. Delay can be perceived by cues for sure, however, the tolerance of delay in a specific task may depend on much more factors such as fairness and interactivity \cite{ishibashi2006subjective, montagud2012inter}. So we are not going to model the tolerant delay anymore, but list factors to affect it according to previous work. We will also introduce a way to measure tolerance of a specific delay in a specific task, in our example experiment.
+
+We next introduce the four synchronization levels. The basic idea is the observation that user perceive delay by cues. We determine the level of a task by judging if it contains cues of \emph{forced synchronization}, \emph{conversation} or \emph{visual feedback}. As Table \ref{tab:table_synchronization_levels} shown, we recommend their noticeable delay and tolerable delay by summarizing previous audiovisual works and adapting to the 3D situation.
+
+\begin{table} [!htbp]
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\begin{tabular}{|p{0.4\columnwidth}|p{0.25\columnwidth}|p{0.25\columnwidth}|}
+\hline 
+\textbf{Levels} and \emph{Examples} & Noticeable Delay & Tolerable Delay \\
+
+\hline
+\textbf{Forced Synchronization} & \textbf{20 - 50 ms} & \textbf{50 - 100 ms} \\
+\hline
+\emph{fast finger game} \cite{ishibashi2006subjective} & ?? ms & ?? ms \\
+\hline
+\emph{Rock-Paper-Scissors} \cite{hashimoto2006influences} & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+
+
+\hline
+\textbf{Conversation} & \textbf{100 - 150 ms} & \textbf{300 - 400 ms} \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+
+\hline
+\textbf{Visual Feedback} & \textbf{150 - 500 ms} & \textbf{500 - 1000 ms} \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+
+\hline
+\textbf{Lacking Cues} & \textbf{> 500 ms} & \textbf{> 1000 ms} \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+\emph{example} [?] & ?? ms & ?? ms \\
+\hline
+
+\end{tabular}
+\caption{The four synchronization levels.}
+\label{tab:table_synchronization_levels}
+\end{table}
+
+\subsection{1. Forced Synchronization}
+
+
+\subsubsection{synchronous gesture}
+
+If two distributed users have to gesture exactly at the same time, they may be able to perceive delay like checking their own movement. As \cite{nielsen1993response} explained, 100 ms is an upper boundary for users to fell that the system is running instantaneously. For a better performance, a delay of 30 to 50 ms is needed \cite{chen2007review}.
+
+Imaging that a pair is playing rock-paper-scissors in a 3DTI system with a delay of 100 ms. They expect to perform the gesture exactly at the same time. However, at least one player will find that his partner gesture at least 100 ms slower, which may cause annoyance.
+
+\subsubsection{synchronous speaking}
+
+A pair of users would be sensitive to delay if they have to speak at the same time. For example, when counting down together in a 3DTI system with a delay of 100 ms, at least one user will hear repeated sounds more than 100 ms apart. As a reference, the human ear can distinguish an echo from the original direct sound if the delay is more than 100 ms \cite{wolfel2009distant}. Notice that synchronous speaking is different from a conversation (turn talking).
+
+\subsubsection{instrument ensemble}
+
+With the development of the high-quality network, it is clear that networked music performance has a future \cite{carot2007networked}. 3DTI makes these tasks more nature. For example, two distributed musicians can practice piano duet through 3DTI.
+
+A realistic musical interaction assumes a one-way delay of less than 25 ms \cite{carot2007network}. Beyond this threshold, the groove-building-process cannot be realized by musicians. \cite{schuett2002effects} suggests a delay between 10 - 20 ms for providing a stabilizing effect on the tempo. For a relatively worse network, a coping strategy was discovered that allowed the performers to maintain a solid tempo up to 50 - 70 ms of delay.
+
+\subsection{2. Conversation}
+
+Conversation is an important cue for delay perception. In face-to-face situations, we have learned to unconsciously manage a conversation using the timing of the small pauses in speech \cite{sacks1978simplest}.
+
+[TODO] Theory: Turn Talking Model.
+
+\subsubsection{Chatting}
+
+[TODO]
+
+\subsubsection{Remote guidance}
+
+[TODO]
+
+\subsection{3. Visual Feedback}
+
+[TODO] A short introduction.
+
+[TODO] Theory: Situation Awareness Theory.
+
+[TODO] Theory: Grounding Theory.
+
+\subsubsection{Silent collaboration}
+
+[TODO] Example: Surgery Simulation.
+
+\subsubsection{Imitation}
+
+[TODO] Example: Building Block.
+
+\subsubsection{Turn-based game}
+
+[TODO] Example: Playing chess.
+
+\subsection{4. Lacking Cues}
+
+If an interaction lacks cues for delay perception, the noticeable delay and tolerable delay would be very large. Most actual networks will not exceed such a large delay \cite{donovan2014understanding} [?, ?]. So we can simply buffer frames for smoothing or recovering packet loss.
+
+[TODO] Example: Playing chess without seeing your partner.
+
+\subsection{[NOTE] Suggestion for network design}
+
+\begin{enumerate}
+    \item An application should reach the delay which leads to MOS of 3.5 points.
+    \item If already within the noticeable delay, we can appropriately increase the delay to have more room for smoothing and recovering packet loss.
+    \item Assistant synchronization can be integrated in an application. For example, we can use synchronized flickers in both side to help a Rock-Paper-Scissors game.
+\end{enumerate}
+
+\subsection{[NOTE] Examples of Applications}
+
+\begin{enumerate}
+    \item \emph{Rock-paper-scissors}:
+    \item \emph{Piano Duet}:
+    \item \emph{Chorus}:
+    \item \emph{Countdown Together}:
+    \item \emph{Chat}:
+    \item \emph{Tell-a-lie Game}:
+    \item \emph{Building Blocks}:
+    \item \emph{Interview}:
+    \item \emph{Playing Chess}:
+    \item \emph{Building Blocks without Chatting}:
+    \item \emph{Magic The Gathering}:
+    \item \emph{3D version of Hearthstone}:
+    \item \emph{Surgery Simulation}:
+    \item \emph{Playing Chess without Seeing Your Partner}:
+    \item \emph{Real-time teaching}
+    \item \emph{dancing}
+\end{enumerate}
