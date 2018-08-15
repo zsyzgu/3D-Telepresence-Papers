@@ -1,29 +1,31 @@
 \section{A Framework of Delay Perception in 3DTI}
 
-% The structure of our framework & its goodness
-We present a conceptual framework of delay perception in 3DTI. In this framework, 3DTI applications are divided into four levels according to their delay requirement. Suggestions are given to network engineering for each level. Furthermore, we have designed an experiment to illustrate the framework. Readers can reconstruct the experiment to precisely measure the delay requirement of a specific application.
+%We present a conceptual framework of delay perception in 3DTI. \textbf{In this framework, 3DTI applications are divided into three levels according to their delay requirement. 这句话不清楚，很想知道什么是一个level，但是没有满足预期，猜也猜不到}. Suggestions are given to network engineering for each level. \textbf{Furthermore, we have designed an experiment to illustrate the framework.} Readers can reconstruct the experiment to precisely measure the delay requirement of a specific application.
 
-In the area of audiovisual DIME, delay perception is a well-understood research question. Our framework partly relies on theories and study results from this area. However, there is a large difference of delay perception between 3DTI and audiovisual DIME. Thus, We take the features of 3DTI into account in order to form our framework.
+% The structure of our framework
+We present a conceptual framework of delay perception in 3DTI. The framework divides 3DTI tasks into three levels: tasks with \emph{synchronous interaction}, \emph{conversation} and \emph{only visual feedback}. Correspondingly, the three levels of tasks call for high, middle and low requirement of network delay. For each level, the framework also gives suggestions to improve the perceived quality of network.
 
-Noticeability and disruptiveness of delay are two important factors that measured by most studies \cite{wu2009quality, schmitt2014influence, geerts2011we, schmitt2014asymmetric}. Some studies also focus on users' perception of overall network quality. These metrics are users' subjective rating in a specific task, and with a specific delay. In our study, we assess subjective feedback via questionnaires similar to \cite{schmitt2014influence}. The questionnaire is on a 5-point Likert scale (Table \ref{tab:table_questionnaire}).
+The framework is supported a comprehensive reviews of previous works. Delay perception is a well-understood research question in audiovisual DIME. \textbf{Our framework partly relies on previous theories and study results（这句话不清楚）}. However, there is a large difference of delay perception between 3DTI and audiovisual DIME. Thus, we take the features of 3DTI into account in order to form our framework.
+
+Noticeability and tolerance of delay are two important factors that were measured by most studies \cite{wu2009quality, schmitt2014influence, geerts2011we, schmitt2014asymmetric}. Some studies also focus on users' perception of overall network quality. These metrics are users' subjective rating in a specific task, and with a specific delay. In our study, we assess subjective feedback via questionnaires similar to \cite{schmitt2014influence}. The questionnaire is on a 5-point Likert scale (Table \ref{tab:table_questionnaire}).
 
 \begin{table} [!htbp]
 \begin{tabular}{|p{0.25\columnwidth}|p{0.35\columnwidth}|p{0.3\columnwidth}|}
 \hline 
 Label & Question & Scale \\
 \hline
-quality & How do you feel during the experiment? & Excellent <--> Bad \\
+quality & How do you feel during the experiment? &Bad <--> Excellent \\
 \hline
-noticeability & Can you perceive the delay in the connection? & Not at all <--> Very much \\
+noticeability & Can you perceive the delay in the connection? & Very much <--> Not at all \\
 \hline
-disruptiveness & To what extent where you annoyed by the delay? & No annoyance <--> Severe annoyance \\
+tolerance & To what extent where you annoyed by the delay? & Severe annoyance <--> No annoyance \\
 \hline
 \end{tabular}
 \caption{Questions and scale.}
 \label{tab:table_questionnaire}
 \end{table}
 
-A 3DTI developer may expect a certain recommended delay for his application. However, previous works \cite{montagud2012inter} [?, ?, ?] pointed out that delay perception is largely dependent on user differences and context. Thus, we should investigate the noticeable and tolerable boundary of delay, which is statistically suitable for most users. We first refer to a psychology concept called \emph{Just Notice Difference (JND)} \cite{xu2013exploiting, sat2009statistical}:
+A 3DTI developer may expect a certain recommended delay for his application. However, previous works \cite{montagud2012inter} [?, ?, ?] pointed out that delay perception is largely dependent on user differences and context. Thus, we should investigate the noticeable and tolerable boundary of delay, which is statistically suitable for most users. We first refer to a psychology concept called Just Notice Difference (JND) \cite{xu2013exploiting, sat2009statistical}:
 
 \begin{itemize}
     \item \emph{JND}: With other variables fixed, the value for which 50\% of the subjects perceive a difference in their quality.
@@ -39,82 +41,76 @@ Most related studies recommend using \emph{noticeable delay} and \emph{tolerable
 
 We illustrate the relationship between noticeable delay and tolerable delay in figure xxx.
 
-The noticeable delay is very insightful for network engineering. On the one hand, developers should try their best to improve the network service, to reach the noticeable delay. On the other hand, when a service is already within noticeable delay, we can appropriately increase the delay to have more room for smoothing or recovering packet loss \cite{xu2013exploiting}.
+The noticeable delay is very insightful for network engineering. On the one hand, developers should try to improve the network service, to reach the noticeable delay. On the other hand, when a service is already within noticeable delay, we can appropriately increase the delay to have more room for smoothing or recovering packet loss \cite{xu2013exploiting}.
 
-[NOTE] Tolerable delay indicates a boundary that is nearly intolerant. An application can not simply target at it, because it is already a bad service. Instead, the tolerable delay can be used to assess the quality of experience (QoE). [?] suggests a linear correlation between end-to-end delay and user experience. We can use noticeable delay and tolerable delay to determine the correlation.
+[NOTE] Tolerable delay indicates a boundary that is nearly intolerant. An application can not simply target at it, because it is already a bad service. Instead, the tolerable delay can be used to assess the Quality of Experience (QoE). [?] suggests a linear correlation between end-to-end delay and user experience. We can use noticeable delay and tolerable delay to determine the correlation.
 
-[NOTE from zsyzgu] Here I changed my mind about the tolerant delay. Delay can be perceived by cues for sure, however, the tolerance of delay in a specific task may depend on much more factors such as fairness and interactivity \cite{ishibashi2006subjective, montagud2012inter}. So we are not going to model the tolerant delay anymore, but list factors to affect it according to previous work. We will also introduce a way to measure tolerance of a specific delay in a specific task, in our example experiment.
+[NOTE from zsyzgu] Here I change my mind about the tolerant delay. Delay can be perceived by cues for sure, however, the tolerance of delay in a specific task may depend on much more factors such as fairness and interactivity \cite{ishibashi2006subjective, montagud2012inter}. So we are not going to model the tolerant delay anymore, but list factors to affect it according to previous work. We will also introduce a way to measure tolerance of a specific delay in a specific task, in our example experiment.
 
-We next introduce the four synchronization levels. The basic idea is the observation that user perceive delay by cues. We determine the level of a task by judging if it contains cues of \emph{forced synchronization}, \emph{conversation} or \emph{visual feedback}. As Table \ref{tab:table_synchronization_levels} shown, we recommend their noticeable delay and tolerable delay by summarizing previous audiovisual works and adapting to the 3D situation.
+We next introduce the three synchronization levels. The basic idea is the observation that user perceive delay by cues. We determine the level of a task by judging if it contains cues of \emph{synchronous interaction}, \emph{conversation} and \emph{visual feedback} 这个是按照什么来分的？看关键词感觉不到维度. As Table \ref{tab:table_synchronization_levels} shown, we recommend their noticeable delay and tolerable delay by summarizing previous audiovisual works and adapting to the 3D situation （从audiovisual adapt到3D的策略和原则是什么？）.
 
 \begin{table} [!htbp]
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
-\begin{tabular}{|p{0.4\columnwidth}|p{0.25\columnwidth}|p{0.25\columnwidth}|}
+\begin{tabular}{|p{0.25\columnwidth}|p{0.2\columnwidth}|p{0.2\columnwidth}|p{0.2\columnwidth}|}
 \hline 
-\textbf{Levels} and \emph{Examples} & Noticeable Delay & Tolerable Delay \\
+\textbf{Levels} and \emph{Examples} & Noticeable Delay & Tolerable Delay & 3.5 MOS \\
 
 \hline
-\textbf{Forced Synchronization} & \textbf{20 - 50 ms} & \textbf{50 - 100 ms} \\
+\textbf{Synchronous Interaction} & \textbf{20 - 50 ms} & \textbf{50 - 100 ms} & ?? ms \\
 \hline
-\emph{fast finger game} \cite{ishibashi2006subjective} & ?? ms & ?? ms \\
+\emph{Rock-Paper-Scissors} \cite{hashimoto2006influences} & 40 ms & ?? ms & 70 ms \\
 \hline
-\emph{Rock-Paper-Scissors} \cite{hashimoto2006influences} & ?? ms & ?? ms \\
+\emph{Virtual car driving} \cite{pantel2002impact} & 50 ms & 200 ms & ?? ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
-\hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{example} [?] & ?? ms & ?? ms & ?? ms \\
 
-
+    
 \hline
-\textbf{Conversation} & \textbf{100 - 150 ms} & \textbf{300 - 400 ms} \\
+\textbf{Conversation} & \textbf{100 - 150 ms} & \textbf{300 - 400 ms} & ?? ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{3D Visual Communication} \cite{wu2009quality} & 120 ms & ?? ms & ?? ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{Video Group Discussion} \cite{schmitt2014asymmetric} & 500 ms & 1000 ms & 500 ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{Audiovisual telecommunication} \cite{tam2012video} & ?? ms & ?? ms & 500 ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{Take turns reading random numbers aloud as quickly as possible} \cite{kitawaki1991sub} & ?? ms & ?? ms & 80 ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{Take turns verifying random numbers as quickly as possible} \cite{kitawaki1991sub} & ?? ms & ?? ms & 120 ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{Take turn verifying city names as quickly as possible} \cite{kitawaki1991sub} & ?? ms & ?? ms & 180 ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{Free conversation} \cite{kitawaki1991sub} & ?? ms & ?? ms & 200 ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
-\hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{example} [?] & ?? ms & ?? ms & ?? ms \\
 
 \hline
-\textbf{Visual Feedback} & \textbf{150 - 500 ms} & \textbf{500 - 1000 ms} \\
+\textbf{Visual Feedback} & \textbf{150 - 500 ms} & \textbf{500 - 1000 ms} & ?? ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{example} [?] & ?? ms & ?? ms & ?? ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{example} [?] & ?? ms & ?? ms & ?? ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{example} [?] & ?? ms & ?? ms & ?? ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{example} [?] & ?? ms & ?? ms & ?? ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{example} [?] & ?? ms & ?? ms & ?? ms \\
 \hline
-\emph{example} [?] & ?? ms & ?? ms \\
-
-\hline
-\textbf{Lacking Cues} & \textbf{> 500 ms} & \textbf{> 1000 ms} \\
-\hline
-\emph{example} [?] & ?? ms & ?? ms \\
-\hline
-\emph{example} [?] & ?? ms & ?? ms \\
+\emph{example} [?] & ?? ms & ?? ms & ?? ms \\
 \hline
 
 \end{tabular}
-\caption{The four synchronization levels.}
+\caption{The three synchronization levels.}
 \label{tab:table_synchronization_levels}
 \end{table}
 
-\subsection{1. Forced Synchronization}
+[NOTE from LZP] In \cite{schmitt2014asymmetric}, the trial only has three delays, 0ms, 500ms and 1000ms. But it has three kinds of delay, symmetric, moderator and random. Meanwhile, paper[64] is similar to this one.
+In \cite{tam2012video}, participants rate the conversation on five-point scale items, but the results are all between 3.5 and 4.5. So I pick the biggest delay as the MOS 3.5 delay.
+For the rest of examples in conversation section, I can't summarize them. And in \cite{kitawaki1991sub}, the MOS is in the range of 0 to 4, but I think it is the same as 0 to 5.
+
+
+\subsection{1. Synchronous Interaction}
 
 
 \subsubsection{synchronous gesture}
@@ -167,11 +163,7 @@ Conversation is an important cue for delay perception. In face-to-face situation
 
 [TODO] Example: Playing chess.
 
-\subsection{4. Lacking Cues}
-
-If an interaction lacks cues for delay perception, the noticeable delay and tolerable delay would be very large. Most actual networks will not exceed such a large delay \cite{donovan2014understanding} [?, ?]. So we can simply buffer frames for smoothing or recovering packet loss.
-
-[TODO] Example: Playing chess without seeing your partner.
+[NOTE] Most actual networks will not exceed such a large delay \cite{donovan2014understanding} [?, ?]
 
 \subsection{[NOTE] Suggestion for network design}
 

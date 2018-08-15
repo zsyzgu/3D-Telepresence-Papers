@@ -1,19 +1,27 @@
 \section{Introduction}
 
+% [writing] First, provide some context to orient those readers who are less familiar with your topic and to establish the importance of your work.
+
 % [paragraph] development of DIME in audio & 2D
 The past centuries have witnessed the growth of communication technology. The invention of the telephone has saved a great deal of time and money by displacing meeting. Recently, video-mediated communication is getting popular. It provides convenience for teleconference \cite{marlow2016beyond}, tele-collaboration \cite{donovan2014understanding, avellino2015accuracy}, robotic telepresence \cite{jouppi2001robotic, misawa2015chameleonmask, neustaedter2016beam}, and so on. Development of communication technology is never separated from studies of user experience. For example, an industrial standard contributes to avoiding over-engineering of telephone network \cite{itu2003recommendation}, i.e., delay of 150ms is acceptable for most audio-mediated applications \cite{recommendation2003114, donovan2014understanding}. User studies also help the improvement of video-mediated communications, e.g., in regions of pointing \cite{higuchi2015immerseboard, avellino2015accuracy}, distance perception \cite{boustila2015evaluation, alexandrova2010egocentric} and synchronization \cite{geerts2011we, tam2012video, schmitt2014influence}.
 
 % [paragraph] rapid growth of 3DTI recently
-3D tele-immersion emerged in the last past decades. Most latest systems are based on live 3D reconstruction \cite{kurillo2008immersive, petit2010multicamera, maimone2011encumbrance, maimone2012real}. Microsoft Research's Holoportation \cite{orts2016holoportation} was impressive. They presented an end-to-end 3DTI pipeline with high-quality, real-time reconstructions of an entire space. Furthermore, parallel computing devices such as GPUs are getting more powerful. Immersive displays such as head-mounted displays (HMDs) are becoming popular. In a word, both the improvements of algorithm and hardware make 3DTI hopeful to be the next generation of communication tool. However, the focus of previous works has been mainly on technical implementations. Few studies of user experience were conducted in 3DTI.
+3DTI emerged in the last past decades. Most latest systems are based on live 3D reconstruction \cite{kurillo2008immersive, petit2010multicamera, maimone2011encumbrance, maimone2012real}. Microsoft Research's Holoportation \cite{orts2016holoportation} was impressive. They presented an end-to-end 3DTI pipeline with high-quality, real-time reconstructions of an entire space. Furthermore, parallel computing devices such as GPUs are getting more powerful. Immersive displays such as Head-Mounted Displays (HMDs) are becoming popular. In a word, both the improvements of algorithm and hardware make 3DTI hopeful to be the next generation of communication tool. However, the focus of previous works has been mainly on technical implementations. Few studies of user experience were conducted in 3DTI.
+
+% [writing] Second, state the need for your work, as an opposition between what the scientific community currently has and what it wants.
 
 % [paragraph] in this paper, we...
 Delay is an important QoS factor that affects user experience \cite{brunnstrom2013qualinet, schmitt2014asymmetric, schmitt2013qoe}. In this paper, we propose a conceptual framework of delay perception in 3DTI. This framework is supported by a comprehensive review on delay perception in telepresence. It levels synchronization requirements of 3DTI tasks into four categories: tasks with \emph{forced synchronization}, \emph{conversation}, \emph{visual feedback} and \emph{lacking cues}, which require networks with delay up to 50ms, 150ms, 400ms and 1000ms respectively. Our framework also suggests solutions to saving network resource or improving the user experience for each synchronization level.
+
+% [writing] Third, indicate what you have done in an effort to address the need (this is the task).
 
 % [paragraph] our 3DTI implementation
 For the implementation of our experimental system, we first reviewed previous works in details. We found that the solutions toward a full 3D tele-immersion became clear in the last decade. We followed mainstream techniques to build our 3DTI system. To our knowledge, we for the first time investigate delay perception in an advance 3DTI system, i.e., reconstructing and rendering scenes in full 3D.
 
 % [paragraph] the user study
 Then, we describe a controlled study to illustrate our framework. [TODO]
+
+% [writing] Finally, preview the remainder of the paper to mentally prepare readers for its structure, in the object of the document.
 
 % [paragraph] paper structure
 In the remainder of this paper, we begin by reviewing techniques and studies of delay in 3DTI. Next, we propose our framework of delay perception in 3DTI. Then, we introduce our experimental system and describe the example study to illustrate our framework. This paper concludes by providing a practical guideline of network design in 3DTI.

@@ -1,7 +1,7 @@
 \section{Related Work}
 
 % [paragraph] related work structure
-In this section, we first review 3D tele-immersion techniques. We summarize the necessary components of current 3DTI systems to guide our implementation. Then, we have a look about existing studies on delay in 3DTI. Much more related researches were conducted in audiovisual DIME (Distributed Interactive Multimedia Environments). We discuss them later to help forming our framework.
+In this section, we first review 3D tele-immersion techniques. We summarize the necessary components of current 3DTI systems to guide our implementation. Then, we have a look about existing studies on delay in 3DTI. Much more related researches were conducted in audiovisual Distributed Interactive Multimedia Environments (DIME). We discuss them later to help forming our framework.
 
 \subsection{3D Tele-immersion}
 
@@ -25,7 +25,7 @@ In 2016, Microsoft proposed a new pipeline named Fusion4D \cite{dou2016fusion4d}
 \subsubsection{3D Rendering}
 
 % [paragraph] categories of 3D rendering, end light field displays here
-Rendering techniques in 3DTI systems can be mainly divided into three categories: light field displays, spatially immersive displays (SIDs) and head-mounted displays (HMDs). The light field displays \cite{jones2007rendering, jurik2011prototyping, kim2012telehuman, gotsch2018telehuman2} suffers from low resolution because neither computing nor rendering devices can support high-quality 4d light fields. SIDs were earlier, while HMDs are becoming popular nowadays.
+Rendering techniques in 3DTI systems can be mainly divided into three categories: light field displays, Spatially Immersive Displays (SIDs) and HMDs. The light field displays \cite{jones2007rendering, jurik2011prototyping, kim2012telehuman, gotsch2018telehuman2} suffers from low resolution because neither computing nor rendering devices can support high-quality 4d light fields. SIDs were earlier, while HMDs are becoming popular nowadays.
 
 % [paragraph] spatially immersive displays - earlier
 Around year 2000, SIDs had become increasing significant \cite{gross2003blue}. CAVE \cite{cruz1993surround} is a typical SIDs system, which consists of surround-screen projection. Users wear 3D glasses in a CAVE. Most 3DTI systems at that time applied rendering techniques similar to CAVE \cite{gibbs1999teleport, towles20023d, gross2003blue, kurillo2008immersive, benko2012miragetable}. CAVE was design to support the one-to-many presentation. Latter researchers improved it for multi-user by using polarization or time-sharing \cite{frohlich2005implementing, kulik2011c1x6, guan2018two}. Multi-user SID was used by an immersive group-to-group telepresence \cite{beck2013immersive}. There is also a simplified technique called head-tracked auto-stereo display \cite{benko2014dyadic, jones2014roomalive}, which allows 3D view without glasses. Some 3DTI system \cite{maimone2011encumbrance, maimone2012real, pejsa2016room2room} used it for rendering. However, these glasses-free systems have to abandon the benefit of stereoscopy.
@@ -36,7 +36,7 @@ Recently, HMDs are becoming popular. More 3DTI systems tend to apply HMDs for 3D
 \subsection{Delay Perception in 3DTI}
 
 % [paragraph] introduction of delay perception in telepresence
-User experience often relates to QoS (quality of service) including delay, bandwidth, jitter and packet loss \cite{donovan2014understanding}. Previous works have found that delay is one of the most crucial factors determining user experience in telepresence \cite{vogel1995distributed, brunnstrom2013qualinet, schmitt2014asymmetric, schmitt2013qoe}. For telephone, 150ms has been established as an industry standard for an acceptable delay \cite{rec2003g, percy1999understanding}. Also, a huge amount of related works have been conducted in audiovisual DIME. 
+User experience often relates to Quality of Service (QoS) including delay, bandwidth, jitter and packet loss \cite{donovan2014understanding}. Previous works have found that delay is one of the most crucial factors determining user experience in telepresence \cite{vogel1995distributed, brunnstrom2013qualinet, schmitt2014asymmetric, schmitt2013qoe}. For telephone, 150ms has been established as an industry standard for an acceptable delay \cite{rec2003g, percy1999understanding}. Also, a huge amount of related works have been conducted in audiovisual DIME. 
 
 % [paragraph] what is different in 3D?
 3DTI is quite different from audiovisual DIME: first, high level of immersion offers more cues, i.e., users may be more sensitive to delay in 3DTI; second, with abundant sensory stimuli, users are more tolerant to delay \cite{tam2012video}; third, 3DTI can support much more possible applications that we have to discuss them case by case. Thus, we have to rebuild the theoretical framework of delay perception in 3DTI.
