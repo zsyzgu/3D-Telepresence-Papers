@@ -1,6 +1,6 @@
 \section{User Experiment}
 
-The goal of the experiment is ...
+[Yu] The goal of the experiment is ...
 
 The experiment has two parts. Part A is a chess game with different conditions of cues. Results support the idea of classification in our framework. Part B is the Rock-Paper-Scissors game. It requires a low delay. We present a simple assistant design to help synchronization.
 
@@ -18,7 +18,7 @@ We used a within-subjects experimental design. Each pair of participants played 
 
 In each trial, two distributed participants played chess "face-to-face" for three minutes. We adopted \emph{Reversi} as the task. \emph{Reversi} is simple enough that the participants can learn it in a short time. The game involves frequent interaction: when capturing, a participant should ask his partner to remove the captured chess. The participants have enough chances to perceive a noticeable delay.
 
-In the physical world, each player interacted with a chessboard and chess pieces on his own side. Our 3DTI system fused the two physical scenes into a virtual space. In the virtual space, each player could see not only his chess pieces but also his partner' s chess pieces.
+In the physical world, each player interacted with a chessboard and chess pieces on his own side. The 3DTI system fused the two physical scenes into a virtual space. In the virtual space, each player could see not only his chess pieces but also his partner' s chess pieces.
 
 \subsection{Part B: Rock-Paper-Scissors}
 
@@ -26,13 +26,13 @@ Part B was to evaluate the impact of delay in a high delay requirement situation
 
 \subsubsection{Experimental design}
 
-This part was also a within-subjects design. Each pair played the Rock-Paper-Scissors game in two sessions: with and without the synchronized audio cue. We applied Latin square to the two sessions. In each session, we tested the delay of 50, 83, 117 and 150ms in four trials. The order of delay conditions was random.
+This part was also a within-subjects design. Each pair played the Rock-Paper-Scissors game in two sessions: with and without the synchronized audio cue. We applied Latin square to the two sessions. In each session, we tested the delay of 50, 83, 117 and 150ms in four trials. The order of delay conditions was random. We also adopted Latin square on part A and part B.
 
 \subsubsection{Task}
 
-In each trial, a pair continuously drew the Rock-Paper-Scissors gestures until one of them won for ten times. There were two conditions to test: with and without the synchronized visual cue. In an actual network, it is possible to synchronize the time of two systems with almost zero milliseconds apart [cite NTP protocol].
+In each trial, a pair continuously drew the Rock-Paper-Scissors gestures until one of them won for ten times. There were two conditions to test: with and without the synchronized visual cue. In an actual network, it is possible to synchronize the time of two systems with almost zero milliseconds apart (the NTP protocol [?]).
 
-Our 3DTI system provided audio cues for both users to help them gesture exactly at the same time. The cues were two synchronized progress bars in both sides with duration of two seconds. We told participants to gesture when the progress bar run to completion.
+Our 3DTI system provided zero-delay audio cues for both users to help them gesture exactly at the same time. The cue was an audio source of four seconds, with "tick" sounds at the 2nd, 3rd second and a "tack" sound at the 4th second. We told participants to gesture when their hear the "tack" sound.
 
 \subsection{Participants}
 
@@ -43,9 +43,9 @@ Previous works have pointed out that the individual user differences affect stud
 \begin{itemize}
     \item \emph{Relationship}: Each pair of participants are familiar with each other (friends, classmates or partners). This setting is to improve the conversation quality.
     
-    \item \emph{First language}: All the participants are native Chinese speakers. Chinese conversations are a little bit harder to predict compared to English conversations [?], which may lead to a larger noticeable delay.
+    \item \emph{First language}: All the participants are native Chinese speakers. Chinese conversations are a little bit harder to predict compared to English conversations [?], which may lead to a larger noticeable delay (about xx ms).
     
-    \item \emph{Experience in DIME}: Our participants have relatively high education levels. According to the self-report questionnaire, they are quite familiar with audiovisual multimedia (xx points in average, 1 for not familiar, 5 for experts) and AR/VR (xx points in average).
+    \item \emph{Experience in DIME}: Our participants have relatively high education levels. According to the self-report questionnaire, they are quite familiar with audiovisual multimedia (xx points in average, 5 for experts) and AR/VR (xx points in average).
 \end{itemize}
 
 Thus, our study results are rigorous but relatively low in the external validity. We recommend a larger amount of participants if the readers need a more general result.
@@ -56,9 +56,9 @@ Thus, our study results are rigorous but relatively low in the external validity
 
 %[Copy from other paper] After four minutes, the experimenters interrupted the conversations, gave the participants short surveys to complete, and presented the next topic sheet. This process was repeated for each of the seven trials. After all seven trials, participants completed a questionnaire asking about their favorite conversations and any difficulties with understanding the other participant.
 
-Before the experiment, we invited the participant pair to a room and explained our study. We explained the rule of \emph{Reversi} and \emph{Rock-Paper-Scissors}. Next, the pair had ten minutes to experience the physical interaction of these two games. Then, we introduced our experimental procedure to the participants.
+Before the experiment, we invited the participant pair to a room and explained our study. We explained the rule of \emph{Reversi} and \emph{Rock-Paper-Scissors}. Next, the pair had ten minutes to experience the physical interaction of these two games. We asked the participants to remember the feeling of physical interaction and regard it as a zero-delay experience. Then, we introduced our experimental procedure to the participants.
 
-Part A had $3 sessions \times 5 trials = 15 trials$, which lasted for one hour. Part B had $2 sessions \times 4 trials = 8 trials$ (half an hour). In each trial, the participants experience the remote VR game. After each trial, participants filled in a short survey and rested for one minute. The questions in the survey are shown in Table \ref{tab:table_experiment}.
+Part A had $2 sessions \times 5 trials = 10 trials$, which lasted for 40 minutes. Part B had $2 sessions \times 4 trials = 8 trials$ (20 minutes). In each trial, the participants experience the remote VR game. After each trial, participants filled in a short survey and rested for one minute. The questions in the survey are shown in Table \ref{tab:table_experiment}.
 
 \begin{table} [!htbp]
 \begin{tabular}{|p{0.25\columnwidth}|p{0.35\columnwidth}|p{0.3\columnwidth}|}
@@ -86,7 +86,7 @@ After each session, participants had a five minutes break. We conducted brief in
     \item Any other comments?
 \end{itemize}
 
-In particular, we explained to participants about the concept of network delay. In our system, there was a local end-to-end delay of about 20 ms, which is slightly noticeable for the users. We told the participants that we do not consider the local delay in the questionnaire. Instead, we evaluate the network delay, which is the temporal gap between the remote action and the local rendering. A participant can perceive the network delay by judging if his partner is slow in speaking and gesturing.
+In particular, we explained to participants about the concept of network delay. In our system, there was a local end-to-end delay of about 20 ms, which is slightly noticeable for the users. We told the participants that we do not consider the local delay in the questionnaire. Instead, we evaluate the network delay, which is the time interval between your partner acts and you see. A participant can perceive the network delay by judging if his partner is slow in speaking and gesturing.
 
 \subsection{Results}
 

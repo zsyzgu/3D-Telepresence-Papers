@@ -73,7 +73,7 @@
 
 \begin{abstract}
 
-3D Tele-Immersion (3DTI) grows rapidly in recent years. However, few works were conducted to study user experience in 3DTI. Delay is an important factor that affects user experience. In this paper, we explore users' delay perception in a 3DTI system with reconstruction and rendering in full 3D. We propose a conceptual framework that levels synchronization requirements of 3DTI tasks. Then we describe our controlled study as an illustrating example. Results show that users' noticeability and tolerance of delay fit our framework. Finally, we give suggestions of network engineering to help saving network resources and to improve the user experience.
+3D Tele-Immersion (3DTI) allows distributed users to communicate in a same virtual space. It grows rapidly in recent years. However, few works were conducted to study user experience in 3DTI. Delay is an important factor that affects user experience. In this paper, we explore users' perception of network delay in 3DTI. We propose a conceptual framework that levels delay requirements of 3DTI tasks into three classes: \emph{synchronous} tasks, \emph{audiovisual} tasks and \emph{visual Only} tasks. \emph{synchronous} tasks involves interactions at the same time, e.g., instrument ensemble and the Rock-Paper-Scissors game. They require a low delay of 30 $\sim$ 100 ms. We suggest that 3DTI supports much more tasks of this delay-sensitive level compared to the 2D situation. The other two levels are common in 2D, e.g., teleconference and playing chess. We suggest that they require a delay of 200 ms or more in 3DTI. The requirement is lower because the users are less sensitive and more tolerable to delay in 3D. We describe an example study to illustrate our framework. For each level, the framework gives suggestions of network engineering to save network resources and improve the user experience.
 
 \end{abstract}
 
@@ -100,13 +100,19 @@
 
 \input{sections/introduction.tex}
 
-\input{sections/relatedwork.tex}
-
 \input{sections/framework.tex}
 
 \input{sections/system.tex}
 
 \input{sections/experiment.tex}
+
+\input{sections/relatedwork.tex}
+
+\input{sections/limitation.tex}
+
+\section{Conclusion}
+
+This paragraph is for the conclusion.
 
 \begin{acks}
 

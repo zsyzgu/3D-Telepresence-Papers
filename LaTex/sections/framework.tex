@@ -1,4 +1,6 @@
-\section{A Framework of Delay Perception in 3DTI}
+\section{A Conceptual Framework of Delay Perception in 3DTI}
+
+% The first level \emph{Synchronous} tasks involves interactions at the very same time, e.g., instrument ensemble, dancing together and the Rock-Paper-Scissors game. They require the lowest network delay. We suggest that 3DTI supports much more tasks in this delay-sensitive level compared to the 2D situation, because some of these tasks are impossible or unnatural in 2D.
 
 %We present a conceptual framework of delay perception in 3DTI. \textbf{In this framework, 3DTI applications are divided into three levels according to their delay requirement. 这句话不清楚，很想知道什么是一个level，但是没有满足预期，猜也猜不到}. Suggestions are given to network engineering for each level. \textbf{Furthermore, we have designed an experiment to illustrate the framework.} Readers can reconstruct the experiment to precisely measure the delay requirement of a specific application.
 
@@ -193,3 +195,32 @@ Conversation is an important cue for delay perception. In face-to-face situation
     \item \emph{Real-time teaching}
     \item \emph{dancing}
 \end{enumerate}
+
+%craft written by HBJ
+We present an empirical framework of delay perception of 3D Tele Immersion. Tasks in 3DTI can be assigned to 3 different levels: tasks with enforced synchronous interaction, tasks with free conversation and tasks with visual-only communication. Tasks of different levels have different requirements of delay, as shown in figure 1(表格)
+
+There are two indicators of delay measured by most researches: noticeability and disruptiveness of delay. 
+
+Noticeability Noticeability of delay means whether user can perceive the transmission delay in the system or not. In common case if they can communicate very fluently in the visual space as if they were communicating in the real world, then it means they can barely notice the delay. 
+
+Disruptiveness Disruptiveness means whether user can tolerate the delay in the system or not. If they believe the delay hinder them from interacting fluently or the delay disrupt the fairness of certain task or game, the disruptiveness will be very severe.
+
+Countless work has been done on measuring these two factors in previous researches. However, all of them are conducted in audio-only experiments and 2D video experiments, as shown in figure 2(表格介绍以往工作). In audio-only telecommunication research, it is widely acknowledged that the noticeability and tolerance of delay are around 150ms and 400ms (引用). As for audiovisual experiments noticeability and tolerance of delay are around 200ms and 500ms. (need citation)
+
+However, the framework of delay in 3DTI tasks is different from both of them. According to our experiment result, tasks can be divided into three levels. In each level, tasks have similar threshold of delay noticeability due to their common audio and visual factors, while threshold of delay tolerance usually vary in a range because of other factors.
+
+Enforced synchronous interaction The common feature of these tasks is that they all require users to do something at the very same time. Users in this kind of tasks tend to notice delay easily through observing partner’s behavior. Besides, high delay is usually intolerable because it will have obvious negative impact on QoE and fairness with game. Delay noticeability is around 50ms, which is much lower than the limit of 2D video interaction. Delay tolerance vary from 50ms to 150ms.
+
+Some typical examples of enforced synchronous interaction are Rock-paper-scissors game, real-time musical collaboration and count-down game. 
+Rock-paper-scissors require both sides of users to show their hand gestures simultaneously. If delay between two sides grows higher than the threshold of noticeability, user will perceive that his or her partner seems to show gestures later than expected. If it exceeds the tolerance delay, then both players will suspect that their partner shows gestures slowly intentionally and the fairness with the game is broken. More details of this game will be described in our experiments.
+Real-time musical collaboration requires musicians to work on the same pace. It has an even higher limitation on delay tolerance because if one of the musician lags behind or go ahead just a little fraction of a musical note (say a quaver), the general harmony of music will be destroyed completely. Thus, noticeability and tolerance are almost the same in this task.
+Count-down game demands that both players to count from 10 to 1 simultaneously. This is a rather low-requirement task of level 1 because players can tolerate delay up to 150ms. (evidence?)
+
+Visual-only Interaction the common feature of tasks in this level is that audio communication is not available through the whole process. Users can only use body gestures to interact with each other. These tasks are not possible in former 2DTI systems because users cannot express their meaning fully and fluently through a 2D video screen. However, in 3D visual space, since users can see each other in a 3D shape, observe body gestures more easily and understand each other more quickly. Noticeability and tolerance of tasks in this level is much higher than the other 2(3?) levels because users usually work in a slow pace in these tasks and without audio signals they hardly perceive the system delay. Delay noticeability is around 1000ms and tolerance is 2000ms.
+
+Some typical examples are chess game, Reversi game and ?
+Chess game involves two players who can play the game without talking to each other. At the beginning of chess games, players can perceive delay more easily because they move and change turns frequently. But as games go on, it takes more and more time for them to think. The slower the game pace is, the less indicators of delay they can perceive.
+Reversi game is similar to chess game but it requires more moves. When one side of the player moves, the other side will help remove discarded dots and put on new dots. 
+
+
+
