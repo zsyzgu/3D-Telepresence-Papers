@@ -1,33 +1,126 @@
+
 \section{Introduction}
 
-% [writing] First, provide some context to orient those readers who are less familiar with your topic and to establish the importance of your work.
+The last century has witnessed the development of telecommunication from telegram, telephone to multimedia, which has been dramatically and continuously reshaping our lives and human society \cite{friedman2007world}. Behind this, a trend of growing richness in telecommunication techniques is also manifest. From text, audio to video, it points to human beings' essential need of communicating in an immersive way \cite{apostolopoulos2012road}. Recently, profiting from the rapid development of GPUs and head-mounted displays (HMDs), 3D telepresence (e.g., Holoportation \cite{orts2016holoportation}) has again been attracting people's attention. 3D telepresence builds on real-time 3D reconstruction, transmission, and rendering of people and the entire space. This new telecommunication paradigm is considered to represent the highest level of immersion in telecommunication.
 
-% [paragraph] development of DIME in audio & 2D
-The past centuries have witnessed the growth of communication technology. The invention of the telephone has saved a great deal of time and money by displacing meeting. Recently, Distributed Interactive Multimedia Environments (DIMEs) is getting popular. It provides convenience for teleconference \cite{marlow2016beyond}, tele-collaboration \cite{donovan2014understanding, avellino2015accuracy}, robotic telepresence \cite{jouppi2001robotic, misawa2015chameleonmask, neustaedter2016beam}, and so on. Development of communication technology is never separated from the studies of user experience. For example, delay of 150 ms provides a good user experience for most audio-mediated applications \cite{recommendation2003114, donovan2014understanding}. It has become an industrial standard that contributes to telephone network engineering \cite{itu2003recommendation}. 2D DIME also benefits from the studies of user experience, e.g., in the regions of pointing \cite{higuchi2015immerseboard, avellino2015accuracy}, distance perception \cite{boustila2015evaluation, alexandrova2010egocentric} and delay perception \cite{geerts2011we, tam2012video, schmitt2014influence}.
+% Recently, benefit from the head-mounted displays (HMDs) 3D tele-immersion technology (e.g. Holoportation \cite{orts2016holoportation}) arises and satisfies such an envision of highest level of immersion [XX]. A 3DTI system can reconstruct the scene in real-time and transmit the result to remote so that remote users can interact with. 
 
-% [paragraph] rapid growth of 3DTI recently
-3DTI emerged in the last past decades \cite{kurillo2008immersive, petit2010multicamera, maimone2011encumbrance, maimone2012real}. Microsoft Research's Holoportation \cite{orts2016holoportation} was impressive. They presented an end-to-end 3DTI pipeline with high-quality, real-time reconstructions of an entire space. Furthermore, parallel computing devices such as GPUs are getting more powerful. Immersive displays such as Head-Mounted Displays (HMDs) are becoming popular. In a word, both the improvements of algorithm and hardware make 3DTI hopeful to be practical in the near future.
+%owning to the progress in real-time 3D reconstruction and rendering technology.
 
-% [writing] Second, state the need for your work, as an opposition between what the scientific community currently has and what it wants.
+%Recently, the development of VR/AR  (display) and sensing (stereo camera), computing (3D construction) has made 3D tele-immersiveness into reality. 
 
-% [paragraph] what the scientific community currently has and what it wants
-The focus of previous 3DTI works has been mainly on technical implementations. However, few works were conducted to study user experience in 3DTI. In particular, no work has been done to study users' perception of network delay in an advanced 3DTI system.
+The unique and core benefit of a 3D telepresence system is the sense of "co-presence": remote participants can interact with each other as if they present "in the same space at the same time" \cite{orts2016holoportation, kraut2003visual}. For example, remote users in two distributed sites can see each other, visually shake hands, share the same space and the same object as if they were face-to-face in the real world. Due to the rich information shared between sites in real-time, 3D telepresence enables a substantial set of novel and promising applications that cannot be achieved before, such as remote chess games, dance collaboration, and piano duet. Meanwhile, 3D telepresence also creates a tremendous research space in the area of Human-Computer Interaction, where many research questions deserve to be studied, such as human factors, user behavior, collaboration techniques, and so on.
 
-% [paragraph] the need of our work
-Network delay is a crucial factor that affects user experience \cite{brunnstrom2013qualinet, schmitt2014asymmetric, schmitt2013qoe, wu2009quality}. The studies of delay perception is useful. Numerous works have been carried out to explore delay perception in telephone and 2D DIME. Given a specific task, noticeability and acceptance of delays are important factors to measure \cite{wu2009quality, schmitt2014influence, geerts2011we, schmitt2014asymmetric}. On the one hand, a network service should achieve the acceptable delay as far as possible. On the other hand, there is no need to improve the network while the delay is already unnoticeable. Beyond that, many other strategies were proposed to save network resources and improve the user experience.
+% [NOTE] image quality改成percieved rendering quality，因为前者属于QoS。和quality of experience (user experience)同级的topics还可以有user's ability，user's behavior等等。
 
-% [paragraph] The difference between 3D and 2D - why should we rebuild the framework
-Despite of the sufficient research in 2D, it is still necessary to rebuild the framework of delay perception in 3D. The reason is the large difference between 3DTI and 2D DIME: First, 3DTI can support more applications and improve some existing tasks in a more nature manner. We have to discuss them case by case; Second, 3DTI refers to a higher level of immersion, which offers more visual cues. Previous work \cite{tam2012video} have pointed out that video increase users' tolerance to delay. This effect may be enhanced in 3D.
+% 3DTI can enable face-to-face human-to huamn interaction with co-present sense. This would provide a new platform for research QoE and interaction techniques. 
 
-% [writing] Third, indicate what you have done in an effort to address the need (this is the task).
+%The engineering difficulties involve all aspects on sensors, hardware and software.
 
-% [paragraph] in this paper, we propse the framework
-In this paper, we propose a conceptual framework of network delay perception in 3DTI. It levels delay requirements of 3DTI tasks into three classes: \emph{synchronous} tasks, \emph{audiovisual} tasks and \emph{visual only} tasks, which require network delays of about 50 ms, 200 ms and 400 ms respectively. We designed the framework through a comprehensive review on delay perception and 3DTI systems. For each level in our framework, we summarized suggestions on network engineering. To validate the framework, we first followed the mainstream works to build up our 3DTI systems. Then, we conducted a controlled study to illustrate our framework. To our knowledge, we are the first to investigate users' perception of network delay in a full 3D tele-immersion system.
+However, currently, developing and deploying a 3D telepresence system is challenging and requires masses of resources. For example, to support a single site, Holoportation \cite{orts2016holoportation} deployed 24 industrial cameras and five distributed PCs. The challenge even concerns more on the development aspect. First, generally speaking, the core algorithms of 3DTI builds upon considerable knowledge and expertise of mathematics and computer graphics that cannot be acquired easily. Second, the engineering part involves quite a number of model parameters and hardware acceleration designs (i.e. CUDA), which directly impacts the performance but are seldom reported in the research paper. The high cost of building a 3DTI system impedes HCI research in this area in the first place. 
 
-% [paragraph] Contributions
-The contribution of our work is threefold: First, the framework infers a significant change of network delay perception in 3D. We recommend that the 3DTI developers should first assess his application through our framework; Second, we summarize suggestions on network engineering to cope with different level of tasks. These suggestions can help saving network resource and improving the user experience; Third, our project is open-source [?]. We give necessary explanation in the system overview to make sure that the readers can easily build up a similar system.
+% [错误] First, although 3D reconstruction is a well researched area, works on real-time 3D reconstruction are relatively few and new (summarized in Section 2).
 
-% [writing] Finally, preview the remainder of the paper to mentally prepare readers for its structure, in the object of the document.
+% 然而，目前来说，开发和部署1套3DTI系统的成本和资源花费是很大的。这个不仅仅是硬件成本问题，比如holoportation用了32 cameras 和 4 pcs来覆盖一个空间，更多的还是背后技术实现问题。首先，在这个领域，虽然3D construction研究很多，但是如何做到real-time的研究工作较少也比较新。一般来说，3DTI系统的核心算法涉及到涉及到大量的数学，计算机图形学的专业知识。而且在实际实现过程中，还会存在着大量的参数设置和硬件加速优化等诸多工程问题。这些都细节都没有正在文章中公开，但是对于性能有着重要影响。而我们认为开发和部署的高成本很大程度上阻碍了hci研究在这个问题上的发展。
 
-% [paragraph] paper structure
-We construct the paper as follow: In section 2, we present our framework. In section 3, we give an overview of our experimental system. In section 4, we describe the controlled study to illustrate our framework. In section 5, we supplement related works on system implementation and existing works on 3DTI delay perception. In section 6, we discuss the limitation of our work. At the end we draw the conclusion.
+% However, the cost of developing and deploying 3DTI is extremely high, which impedes research in this area at the first place.  For example, Holoportation [XX] not only used dozens of industrial camera and distributed PCs. More importantly is the algorithm. 软件部分总体上就是数学上复杂，代码量巨大，算法细节不公开（比如在holoportation中需要对non-rigid body进行tracking，tracking技术往往需要调整很多参数，才能得到好的质量），实现细节不公开（比如这是一个以访存为瓶颈的GPU工程，其中的访存结构，steaming顺序，都会极大地影响pipeline的效率）. 3DTI researchers needs to spend a lot of resource to build it. 
+
+% to reconstruct the 3D model of both the surrounding and users in real time, each site was equipped with 24 cameras (16 Near Infra-Red cameras and 8 color cameras) and 4 PCs, with each using two NVIDIA Titan X GPUs. In addition, the algorithm builds on sophisticated pipeline which cannot be acquired without an expertise on computer vision and CUDA developing. The reconstructed model was transmitted to a dedicated dual-GPU fusion machine for rendering over a point-to-point 10Gbps network. Finally, Holoportation provided an end-to-end latency of 80ms, and an average error of 3 millimeters at 1 meter distance and 6 millimeters at 1.5 meter distance. Even though, the performance still does not satisfy the requirement as indicated in previous research in 2D [XX, XX]. Other systems It has both financial and human cost to develop such a system. 
+% However, the cost of developing and deploying 3DTI is extremely high, which impedes research in this area at the first place. The engineering difficulties involve all aspects on sensors, hardware and software. For example, in the implementation of Holoportation [XX], to reconstruct the 3D model of both the surrounding and users in real time, each site was equipped with 24 cameras (16 Near Infra-Red cameras and 8 color cameras) and 4 PCs, with each using two NVIDIA Titan X GPUs. In addition, the algorithm builds on sophisticated pipeline which cannot be acquired without an expertise on computer vision and CUDA developing. The reconstructed model was transmitted to a dedicated dual-GPU fusion machine for rendering over a point-to-point 10Gbps network. Finally, Holoportation provided an end-to-end latency of 80ms, and an average error of 3 millimeters at 1 meter distance and 6 millimeters at 1.5 meter distance. Even though, the performance still does not satisfy the requirement as indicated in previous research in 2D [XX, XX]. Other systems It has both financial and human cost to develop such a system. 
+
+% [NOTE] which impedes \textbf{HCI} research in this area.
+% sensors, hardware and software --> hardware, pipeline and algorithm. 
+% 我个人觉得这一段说holoportation的缺点，有点过长了。虽然能够很现实地说明他们存在的问题，但是这样写（过分强调他人不足）可能会引起一部分人的反感。另外，其实他们硬件贵的地方是很surprise的，主要来自24个工业摄像头（这里就需要几十万）。也许我们应该直接指出来，不然别人还以为是贵在NVIDIA Titan X了，而一个Titan其实只需要一万元左右。10Gbps network和显卡还是少提为妙，因为其实我们也用了的同等级的设备。他们的delay可以说，误差可以不说，他们的误差做得比我们厉害得多。
+% 重要：computer vision --> computer \textbf{graphics}
+
+%Current, the average error of 3 millimeters at 1 meter distance and 6 millimeters at 1.5 meter distance.  The end-to-end latency is 80ms. The final result of Holoporation and its shortcomings in supporting the applications, especially about the latency that exceeds the requirement of communication according previous research in 2D [XX, XX]. 
+
+% However, currently, building such a platform is expensive. How Holoportation did it, in what cost? Even with Holoportation, there still lacks balance. It cannot satisfy all requirements. We think lack a platform present the first and basic obstacle to promote research in this area. 
+
+The aim of our work is to provide a low-cost and easy-to-deployment 3DTI system, based on which HCI researchers can easily build up 3DTI applications and conduct user research. The system should wrap the core algorithms mentioned above and provide easy-to-use APIs that HCI researchers are familiar with. As a result, HCI researchers can focus their effort on implementing the desired interaction or effects. We are also planning to open source the system, so that others can contribute to the underlying algorithms or functions. Our ultimate goal is to advance 3DTI research in HCI community. 
+
+% Given computing resource is always the bottleneck, the key is to identify the impact of individual performance metric (e.g. latency and image quality) on the quality of user experience, and then take most advantage of the limited computing resource to optimize the most important metrics. 
+% To achieve this, compromise has to be made so that although some experience metric may be sacrificed, but the most important one are supported. This requires identification of critical design metrics that compete on the computing resource and a deliberate balance between performance requirements.
+To inform the design of the system, we first brainstormed 9 representative applications in 3DTI. We then refer to prior literature on QoE (quality of experience) in telecommunication, and analyze their performance requirement accordingly. We finally identify two core requirements, \textit{high synchronicity} and \textit{shared props}, which underline the importance of temporal synchronization and spatial alignment to ``co-presence'' user experience in 3DTI respectively: 
+%first analyze the requirements. We perform a brainstorming about potential applications in 3DTI, which serve as the basic set to be parsed. We analyse their features (which highligths the co-presence experience as a priority to image quality) and combine with QoE research in 2D, we sacrifice the rendering solution, and set several design goals that make up the ``co-presence'' and implications for 3DTI, highlight the spatial and temporal definition of ``co-presense''. We summarize as three aspects:
+
+% 供参考：我在这方面稍微有点怂。如果我们过于强调我们牺牲了渲染质量来换取响应能力和交互特性，可能会引起3DTI专家的反感（不知道reviewer里会不会有这样的人），因为渲染质量恰恰是3DTI里很难做而且我们的确没做好的事情。不如从正面写，我们支持了low-cost，low delay，支持了co-presence中的方方面面，同时渲染质量也不差（用户能够接受）。
+
+\begin{itemize}
+ \item \emph{high synchronicity}: The system should reach a low network delay to meet the high synchronicity of some tasks, e.g., shaking hands and dancing together. The high synchronicity is one of the basic requirements of co-presence \cite{kraut2003visual}.
+ 
+ Why it is important?
+ \item \emph{shared props}: Shared props is a component of co-presence. It allows users to interact with distributed physical objects that looks like one shared prop. The reconstruction algorithm supports shared props by merging similar objects. Physical shared objects provides common grounds that are important for the communication \cite{luff1998mobility, kraut2003visual}.
+%  \item \emph{augmenting physical objects}: Physical objects can be augmented to other prop in the virtual space. For example, an iPad can be augmented as a piano or a keyboard.
+\end{itemize}
+
+% Based on these systems, we develop a 3DTI system to reflect the design goals, and finally present the finally implementation reference. The system basic information. low-cost, easy-to-development add-ons. Our final system requires 1 PC at each site with four depth cameras for capturing. The cost 7000\$ for two sites. The project is open-sourced and readily to be used by others. 
+% Based on the requirements above, we design and implement our 3DTI platform. 
+Our final 3DTI system meets the need of HCI research in three aspects. First, the system fulfills the two core requirements of co-presence. It reaches a one-way network delay as low as 50 ms, and supports shared props with an accuracy of XX mm. The systems run in 30 frames per second, and provides acceptable rendering quality. Second, the system is low-cost to deploy. It consists of inexpensive commercial devices, including 2 RealSense and 1 PC on the source site, and a head-mounted displays (HTC Vive) on the remote site, which costs \$7000 in total. Third, our system is released as a Unity3D plugin, so that developers can build upper-layer applications by taking advantage of rich resources in Unity3D. This makes the development easy and efficient.
+
+% It provides a sync assistance for delay-sensitive tasks. 
+
+% The system enables changes on physical objects by using Virtual Reality (VR).
+
+% A drawback of our system is the relatively low rendering quality. However, we deem that it is acceptable for a HCI research.
+
+To assess the effectiveness of our system, we conducted two user studies. The first focused on the \textit{high synchronization}. We developed a Rock-Paper-Scissors game to test the latency requirement of the highest level in 3DTI. Results showed that a one-way network latency of 50ms was not easily noticed by users, and could well satisfy the QoE requirement in 3DTI. 
+% In addition, we propose a mechanism to compensate the experience if network latency cannot be avoided. 
+In the second user study, we studied the user experience enabled by \textit{shared props} in the fully co-present situation. We built a chess game, where participants in each site interacts with a physical chessboard and the chess pieces of their own side. Participants reported a strong sense of co-presence provided by the system. The two studies together validated the design and implementation of our system. 
+
+\vspace{2mm}
+
+In sum, the contributions of this work are three-fold: 
+\begin{itemize}
+\item We provided a systematic review and analysis of 3DTI technologies and QoE requirements, which informs the design and implementation of future systems. 
+\item We provide a low-cost and easy-to-deploy 3DTI system, which is open sourced. Developers can build 3DTI application easily and efficiently in popular commercial IDE (i.e. Unity3D). 
+\item We evaluated the effectiveness of our system with two user studies, which also provided valuable empirical results as well as insights into the user experience of 3DTI applications. 
+\end{itemize}
+
+% In conclusion, our work contributes in the following: 
+
+% \begin{enumerate}
+% \item an analysis of the design requirements of 3DTI given low-cost solution. 
+% \item an implementation of the system which is open-sourced. 
+% \item an evaluation that validate the system and also gives insights on the benefit of co-presence research. 
+% \end{enumerate}
+
+% The past centuries have witnessed the growth of communication technology. The invention of the telephone has saved a great deal of time and money by displacing physically face-to-face meeting. Higher levels of immersion is a tendency. Several new communication techniques emerged in the past two decades, such as teleconference \cite{allen1996teleconferencing, marlow2016beyond}, telecollaboration \cite{donovan2014understanding, avellino2015accuracy}, robotic telepresence \cite{jouppi2001robotic, misawa2015chameleonmask, neustaedter2016beam}, and so on.
+
+% 3DTI allows distributed users to communicate and interact with each other in the same virtual space. It is the tele-communication with the highest level of immersion so far. 3DTI grows rapidly in the past decade \cite{kurillo2008immersive, petit2010multicamera, maimone2011encumbrance, maimone2012real}. Both the improvement of pipeline and hardware make 3DTI hopeful to be practical in the near future. Microsoft's Holoportation \cite{orts2016holoportation} is a typical 3DTI pipeline with high-quality and real-time performance. For computing, GPUs are getting more powerful. For rendering, immersive displays such as Head-Mounted Displays (MHDs) are becoming popular.
+
+% Prior works on 3DTI mainly focus on technical implementation. Researchers tended to improve the quality of 3D reconstruction and rendering through dedicated devices and complex pipelines. Most 3DTI systems are not open-source, not easy to deploy and do not support easy application development. This phenomenon leads to a high threshold that hinders the research of HCI in 3DTI. As a result, the interaction requirements of 3D have not been well discussed yet. For example, many example tasks in prior 3DTI systems is possible in 2D communications [?, ?, ?].
+
+% In this paper, we aim at a lightweight and open-source 3DTI system that provides convenience for HCI research. The system should be easy to deploy and at the same time meet the interaction requirements of 3D. To explore the requirements, we brainstormed possible tasks in 3DTI. Based on these tasks, we identified three requirements of our system:
+
+% \begin{itemize}
+%     \item \emph{high synchronicity}: The system should reach a low network delay to meet the high synchronicity of some tasks, e.g., shaking hands and dancing together.
+%     \item \emph{co-present and shared props}: Co-present is an important concept in 3DTI that users feel like exactly at the same place. Furthermore, some tasks require shared props, e.g., the shared chessboard in a remote chess game.
+%     \item \emph{modifying physical objects}: Physical objects can be modified to improve interactions in the virtual space \cite{lindlbauer2018remixed}. For example, two iPads in distributed places can be fused into a virtual piano so that two users can play piano duet.
+% \end{itemize}
+
+% Based on the requirements above, we design and implement our 3DTI system. The advantages of our system is twofold. First, the system is easy to deploy. It consists of inexpensive commercial devices (\$7000 in total). The project is open-source and can be released as an Unity3D plugins, which provides convenience for application development. Second, the system meets the interaction requirements explained above. It reaches a one-way network delay of 50 ms. It provides a sync assistance for delay-sensitive tasks. The system uses Head-Mounted Displays (HMDs) to support co-present. The reconstruction algorithm supports shared props by merging similar objects. The system enables changes on physical objects by using Virtual Reality (VR). A drawback of our system is the relatively low rendering quality. However, we deem that it is acceptable for a HCI research.
+
+% To validate the practicality of our system, we conducted two user experiments. The first experiment was to test if our system is responsive enough to support a network delay-sensitive task. We applied the Rock-Paper-Scissors game as the task. Result shows that users are satisfied with our system. Furthermore, our sync assistance significantly improved the user experience. The second experiment was a remote chess game. Through observation and interview, we found positive features of the interaction in our system, e.g., users leverage body language to assist their communications; most users can not tell the difference between touchable objects and purely virtual objects.
+
+% % [paragraph] paper structure
+% In the remainder of the paper, we first review 3DTI systems in details. We also have a brief review on media richness and synchronicity (section 2). We next discuss the interaction requirements of 3D by brainstorming and analysis (section 3). Next, we introduce our 3DTI system (section 4). Then, we describe the experiment for illustration and validation (section 5). The paper concludes by discussing our limitation and the future work (section 6).
+
+% [abandon] the difference between 2D and 3D
+% Despite of the sufficient research in 2D, it is still necessary to rebuild the framework of delay perception in 3D. The reason is the large difference between 2D and 3D. First, 3DTI can support more applications and improve some existing tasks in a more nature manner. We have to discuss them case by case. Second, 3DTI refers to a higher level of immersion, which offers more visual cues. Previous work \cite{tam2012video} have pointed out that video increase users' tolerance to delay. This effect may be enhanced in 3D. Third, the 3DTI systems need a great amount of computing resource and network bandwidth, which calls for higher network requirements and coping strategies.
+
+% [abandon] The importance of studying delay perception.
+% Network delay is a crucial problem in communication technology. On the one hand, network delay significantly affects user experience \cite{brunnstrom2013qualinet, schmitt2014asymmetric, schmitt2013qoe, wu2009quality}. For example, the network delay should be within 150 ms to provide a good user experience for audio-mediated communications \cite{recommendation2003114, donovan2014understanding}. On the other hand, new communications generally require higher bandwidth. It challenges the requirement of low network delay \cite{kleinrock1992latency}.
+
+% [abandon] 
+% Numerous works explored network delay perception in telephone and 2D communications. However, no work has studies network delay perception in full 3D tele-immersion, i.e., with reconstruction and rendering in full 3D. It is necessary to rebuild the framework of network delay perception in 3D because of the large gap between 2D and 3D. First, 3D environment supports co-present, that is, the two users feel like at the same virtual space. Second, 3D offers much more visual information. These features may lead to unknown changes in network delay perception in 3D.
+
+% [abandon] in this paper, we propose the framework
+% In this paper, we explore users' perception of network delay in a full 3D tele-immersion system. We systematically reviewed previous works on network delay perception. We came up with some hypotheses about the problem. To support these hypotheses, we first built a 3DTI system with an ideal network delay of 50 ms and then conducted a controlled study. Finally, we proposed a framework of network delay perception in 3DTI.
+
+%The framework suggests that users perceive network delay by cues. A user perceives the network delay if he feels that his partner response to the cues abnormally, because the perceived response time is prolonged by the round-trip network delay. In previous works, there are three types of cues: synchronous cues, conversation and visual feedback. Among them synchronous cues is the strongest one to reveal network delay, while the visual feedback is the weakest one.
+
+%The framework infers significant changes of network delay perception in 3D. First, more applications fall into the delay-sensitive level \emph{synchronous tasks}. We should pay attention to support their low network delay. Second, users are less sensitive and more tolerable to the network delay in 3D conversations. Based on these findings, we give suggestions for network design.
+
+%  [paragraph] Contributions of our work
+%Our contribution is threefold. First, this work explains how users perceive network delay in 3D and infers significant changes in 3D network delay perception. Second, we give suggestions on network design for each situation in 3D. Third, our project is open-source [?]. We give necessary explanations to make sure that the readers can easily build up a similar system.

@@ -5,7 +5,7 @@
 % Copyright
 \setcopyright{none}
 %\setcopyright{acmcopyright}
-%\setcopyright{acmlicensed}
+\setcopyright{acmlicensed}
 %\setcopyright{rightsretained}
 %\setcopyright{usgov}
 %\setcopyright{usgovmixed}
@@ -37,12 +37,11 @@
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
 
-\title{A Conceptual Framework of Delay Perception in 3D Tele-Immersion}
+\title{TeleCP: a software framework for 3D telepresence that adequately supports co-presence}
 
-\titlenote{Produces the permission block, and copyright information}
-\subtitle{Extended Abstract}
-\subtitlenote{The full version of the author's guide is available as
-  \texttt{acmart.pdf} document}
+%\titlenote{Produces the permission block, and copyright information}
+%\subtitle{Extended Abstract}
+%\subtitlenote{The full version of the author's guide is available as \texttt{acmart.pdf} document}
 
 \author{Leave Authors Anonymous}
 \affiliation{
@@ -71,9 +70,19 @@
 % The default list of authors is too long for headers.
 \renewcommand{\shortauthors}{B. Trovato et al.}
 
+
+\begin{teaserfigure}
+\centering
+\includegraphics[width=\textwidth]{figures/figure_teaser.jpg}
+\caption{The figure shows two applications supported by our framework. (a) is the Rock-Paper-Scissors game that requires a high temporal synchronicity. (b) is a remote chess game that shows a high level of spatial synchronicity.}
+\label{fig:teaser}
+\end{teaserfigure}
+
 \begin{abstract}
 
-3D Tele-Immersion (3DTI) allows distributed users to communicate in a same virtual space. It grows rapidly in recent years. However, few works were conducted to study user experience in 3DTI. Delay is an important factor that affects user experience. In this paper, we explore users' perception of network delay in 3DTI. We propose a conceptual framework that levels delay requirements of 3DTI tasks into three classes: \emph{synchronous} tasks, \emph{audiovisual} tasks and \emph{visual Only} tasks. \emph{synchronous} tasks involves interactions at the same time, e.g., instrument ensemble and the Rock-Paper-Scissors game. They require a low delay of 30 $\sim$ 100 ms. We suggest that 3DTI supports much more tasks of this delay-sensitive level compared to the 2D situation. The other two levels are common in 2D, e.g., teleconference and playing chess. We suggest that they require a delay of 200 ms or more in 3DTI. The requirement is lower because the users are less sensitive and more tolerable to delay in 3D. We describe an example study to illustrate our framework. For each level, the framework gives suggestions of network engineering to save network resources and improve the user experience.
+We present TeleCP: a software framework for 3D telepresence that adequately supports co-presence. Based on some commercial hardware (Realsense, PCs and HTC Vive), the framework allows distributed users to communicate and interact with each other in the same virtual space at the same time. Co-presence consists of temporal synchronicity and spatial synchronicity. For temporal synchronicity, TeleCP achieves a low end-to-end delay of 50 ms with direct Ethernet connection. TeleCP also provides sync assistance to help the users perform simultaneously regardless of the unavoidable network delay. For spatial synchronicity, we render live 3D reconstruction in Head-Mounted Display (HMD). This approach provides the sense that multiple users share a 3D space. TeleCP further allows users to share props by merging similar physical objects in the two ends. In this paper, we introduce the implementation in details. The open-source project contains an Unity3D plugin that simplifies upper-layer application development. We describe an experiment with two tasks to validate the temporal and spatial synchronicity of TeleCP.
+
+%3D Tele-Immersion (3DTI, e.g., Holoportation \cite{orts2016holoportation}) is the next generation of telecommunication that could become practical in the near future. However, the interaction possibilities of 3DTI have not been well discussed. The cost of developing and deploying a 3DTI system is extremely high. HCI researchers without expertise cannot easily acquire such a system. To fill the gap, we present an open-source, lightweight 3DTI system that supports a high level of co-presence. The system has two advantages. First, it is inexpensive (\$ 7000), easy to deploy and use. Second, according to the brainstorming of possible 3DTI applications, our support of co-presence is the key for new interaction possibilities in 3DTI. The co-presence we supported has four contents: rich visual information, spatial co-presence, high synchronicity, and shared props. In this paper, we introduce the system in details and describe a user study to validate the system.
 
 \end{abstract}
 
@@ -85,20 +94,22 @@
 \begin{CCSXML}
 <ccs2012>
 <concept>
-<concept_id>10003120.10003121.10003126</concept_id>
-<concept_desc>Human-centered computing~HCI theory, concepts and models</concept_desc>
-<concept_significance>300</concept_significance>
+<concept_id>10003120.10003121.10003129.10011757</concept_id>
+<concept_desc>Human-centered computing~User interface toolkits</concept_desc>
+<concept_significance>500</concept_significance>
 </concept>
 </ccs2012>
 \end{CCSXML}
 
-\ccsdesc[300]{Human-centered computing~HCI theory, concepts and models}
+\ccsdesc[500]{Human-centered computing~User interface toolkits}
 
-\keywords{Delay perception; 3D tele-immersion}
+\keywords{3D telepresence; co-presence; GPU}
 
 \maketitle
 
 \input{sections/introduction.tex}
+
+\input{sections/relatedwork.tex}
 
 \input{sections/framework.tex}
 
@@ -106,19 +117,11 @@
 
 \input{sections/experiment.tex}
 
-\input{sections/relatedwork.tex}
-
 \input{sections/limitation.tex}
 
 \section{Conclusion}
 
-This paragraph is for the conclusion.
-
-\begin{acks}
-
-We thank all the volunteers, and all publications support and staff, who wrote and provided helpful comments on previous versions of this document. Authors 1, 2, and 3 gratefully acknowledge the grant from NSF (\#1234--2012--ABC). \textit{This whole paragraph is just an example.}
-
-\end{acks}
+In this paper, we demonstrate TeleCP, a software framework for 3D telepresence that adequately supports co-presence. The framework bases on some commercial hardware (Realsense, PCs and HTC Vive, \$7000 in total). It allows a high level of co-presence that distributed users can communicate and interact with each other in the same virtual space at the same time. TeleCP has three new features compared to prior work. First, the one-way end-to-end delay is as low as 50 ms. Second, it provides an optional sync assistance to help the users perform at the same time regardless of the unavoidable network delay. Third, TeleCP to some extent provides shared props. The experiment found that these features improve the user experiences and allow some natural interactions that could only happen in physical communications before.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{bibliography}
